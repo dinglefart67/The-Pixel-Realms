@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePixelRealms", "ThePixelRealms\ThePixelRealms.csproj", "{384EF489-5101-4DDB-B3CF-80714246384E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThePixelRealms.Tests", "ThePixelRealms.Tests\ThePixelRealms.Tests.csproj", "{9E7162BD-7A9D-466C-B752-B2864FFDD7C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{384EF489-5101-4DDB-B3CF-80714246384E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384EF489-5101-4DDB-B3CF-80714246384E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384EF489-5101-4DDB-B3CF-80714246384E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384EF489-5101-4DDB-B3CF-80714246384E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E7162BD-7A9D-466C-B752-B2864FFDD7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7162BD-7A9D-466C-B752-B2864FFDD7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E7162BD-7A9D-466C-B752-B2864FFDD7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7162BD-7A9D-466C-B752-B2864FFDD7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE64BCE9-617E-4439-9E35-6AB37A6EF460}
+	EndGlobalSection
+EndGlobal
