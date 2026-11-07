@@ -1,0 +1,278 @@
+﻿<Window x:Class="ThePixelRealms.TestMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Platformer Game"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        WindowState="Maximized"
+        KeyDown="Window_KeyDown"
+        KeyUp="Window_KeyUp"
+        Loaded="Window_Loaded"
+        Focusable="True"
+        MinHeight="1080">
+
+    <Grid x:Name="RootGrid">
+
+        <Canvas x:Name="GameCanvas" Background="LightBlue" Cursor="None">
+
+            <Image x:Name="Player"
+                   Width="108"
+                   Height="60"
+                   Canvas.Left="100"
+                   Canvas.Top="300"
+                   Source="Assets/Sprites/Borien/Borien_Stand_1.png"
+                   RenderTransformOrigin="0.5,0.5"
+                   Panel.ZIndex="2000">
+                <Image.RenderTransform>
+                    <ScaleTransform x:Name="PlayerScaleTransform" ScaleX="1"/>
+                </Image.RenderTransform>
+            </Image>
+
+            <Rectangle x:Name="Ground"
+                   Width="19000"
+                   Height="800"
+                   Canvas.Left="10"
+                   Canvas.Top="800"
+                   RenderOptions.BitmapScalingMode="NearestNeighbor"
+                   SnapsToDevicePixels="True">
+
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Assets/Map/Ground_Grass.png"
+                    TileMode="Tile"
+                    Stretch="Fill"
+                    Viewport="0,0,38,800"
+                    ViewportUnits="Absolute"
+                    AlignmentX="Left"
+                    AlignmentY="Top"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Canvas>
+
+        <Image x:Name="HpBarImage"
+                Source="Assets/HUD/Hpbar.png"
+                Width="448"
+                Height="116"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="40,0,0,30"
+                Panel.ZIndex="1500"
+                RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+
+        <Image x:Name="KeyMapping"
+                Source="Assets/HUD/keymapping.png"
+                Width="852"
+                Height="116"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,50,30"
+                Panel.ZIndex="1500"
+                RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+
+        <Grid HorizontalAlignment="Left"
+              VerticalAlignment="Bottom"
+              Margin="150,0,0,80"
+              Panel.ZIndex="1100">
+
+            <Rectangle Width="320"
+               Height="38"
+               Fill="#222"/>
+
+            <Rectangle x:Name="HpBarFill"
+               Width="320"
+               Height="38"
+               Fill="LawnGreen"
+               HorizontalAlignment="Left"
+               Panel.ZIndex="1100"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left"
+      VerticalAlignment="Bottom"
+      Margin="150,0,0,56"
+      Panel.ZIndex="1100">
+
+            <Rectangle Width="320"
+               Height="20"
+               Fill="#222"/>
+
+            <Rectangle x:Name="ShieldBarFill"
+               Width="0"
+               Height="20"
+               Fill="CornflowerBlue"
+               HorizontalAlignment="Left"/>
+        </Grid>
+
+        <Grid x:Name="HudBorder"
+              IsHitTestVisible="False"
+              Panel.ZIndex="999"
+              Margin="0,0,0,158">
+
+            <Image Source="Assets/HUD/Border/Border_topleft.png"
+                   Width="48" Height="48"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+
+            <Image Source="Assets/HUD/Border/Border_topright.png"
+                   Width="48" Height="48"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Top"/>
+
+            <Image Source="Assets/HUD/Border/Border_bottomleft.png"
+                   Width="48" Height="48"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"/>
+
+            <Image Source="Assets/HUD/Border/Border_bottomright.png"
+                   Width="48" Height="48"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"/>
+
+            <Image Source="Assets/HUD/Border/Line_top.png"
+                   Height="24"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Top"
+                   Margin="48,0,48,0"
+                   Stretch="Fill"/>
+
+            <Image Source="Assets/HUD/Border/Line_bottom.png"
+                   Height="24"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Bottom"
+                   Margin="48,0,48,0"
+                   Stretch="Fill"/>
+
+            <Image Source="Assets/HUD/Border/Line_left.png"
+                   Width="24"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Stretch"
+                   Margin="0,48,0,48"
+                   Stretch="Fill"/>
+
+            <Image Source="Assets/HUD/Border/Line_right.png"
+                   Width="24"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Stretch"
+                   Margin="0,48,0,48"
+                   Stretch="Fill"/>
+
+        </Grid>
+
+        <Grid x:Name="HudPanel"
+      IsHitTestVisible="False"
+      Panel.ZIndex="500"
+      VerticalAlignment="Bottom"
+      Margin="0,0,0,0"
+      Height="168">
+
+            <Image Source="Assets/HUD/Border/Hud_border_left.png"
+           Width="168"
+           Height="168"
+           HorizontalAlignment="Left"
+           VerticalAlignment="Bottom"/>
+
+            <Image Source="Assets/HUD/Border/Hud_border_right.png"
+           Width="168"
+           Height="168"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Bottom"/>
+
+            <Image Source="Assets/HUD/Border/Hud_border_middle.png"
+           Height="168"
+           HorizontalAlignment="Stretch"
+           VerticalAlignment="Bottom"
+           Margin="168,0,168,0"
+           Stretch="Fill"/>
+
+        </Grid>
+
+        <Grid x:Name="PauseOverlay"
+              Background="#AA000000"
+              Visibility="Collapsed">
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="400">
+
+                <TextBlock Text="PAUSE"
+                           FontSize="40"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30"/>
+
+                <Button Content="Folytatás"
+                        Height="50"
+                        Margin="0,0,0,15"
+                        Click="Resume_Click"/>
+
+                <Button Content="Kilépés a főmenübe"
+                        Height="50"
+                        Margin="0,0,0,15"
+                        Click="ExitToMenu_Click"/>
+
+                <Button Content="Kilépés a játékból"
+                        Height="50"
+                        Click="ExitGame_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="Dead"
+              Background="#AA000000"
+              Visibility="Collapsed">
+
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Width="400">
+
+                <TextBlock Text="MEGHALTÁL"
+                           FontSize="40"
+                           FontWeight="Bold"
+                           Foreground="Red"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,30"/>
+
+                <Button Content="Újraéledés"
+                        Height="50"
+                        Margin="0,0,0,15"
+                        Click="Respawn_Click"/>
+
+                <Button Content="Kilépés a főmenübe"
+                        Height="50"
+                        Margin="0,0,0,15"
+                        Click="ExitToMenu_Click"/>
+
+                <Button Content="Kilépés a játékból"
+                        Height="50"
+                        Click="ExitGame_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="FinishOverlay"
+              Background="#AA000000"
+              Visibility="Collapsed">
+
+            <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="600">
+
+                <TextBlock Text="SZINT SIKERESEN TELJESÍTVE"
+                   FontSize="36"
+                   FontWeight="Bold"
+                   Foreground="LimeGreen"
+                   TextAlignment="Center"
+                   Margin="0,0,0,30"/>
+
+                <Button Content="Kilépés a főmenübe"
+                        Height="50"
+                        Width="400"
+                        Click="ExitToMenu_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock x:Name="DebugText"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="50"
+                   FontSize="16"
+                   Foreground="Black"/>
+    </Grid>
+</Window>

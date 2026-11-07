@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ThePixelRealms/1.0.0": {
+        "runtime": {
+          "ThePixelRealms.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ThePixelRealms/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
